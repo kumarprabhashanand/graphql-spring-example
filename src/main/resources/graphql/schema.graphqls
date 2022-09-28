@@ -1,0 +1,39 @@
+type User {
+    userId: ID!,
+    firstName: String,
+    lastName: String,
+    address: Address
+}
+
+type Address {
+    addressId: ID!,
+    houseNumber: Int,
+    street: String,
+    city: String,
+    zipcode: String,
+    country: String
+}
+
+type Query {
+    #getGreetingMessage(name:String):String
+    getUserById(userId:ID!):User
+    getAllUsers:[User]
+}
+
+type Mutation {
+    addNewUser(user: UserInput):User
+}
+
+input UserInput {
+    firstName: String,
+    lastName: String,
+    houseNumber: Int,
+    street: String,
+    city: String,
+    zipcode: String,
+    country: String
+}
+
+type Subscription {
+    greetNewUsers: String
+}
